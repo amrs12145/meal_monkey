@@ -1,16 +1,10 @@
-# meal_monkey
+# Meal monkey
 
-A new Flutter project.
 
-## Getting Started
+## SSome Screen shots of the app
+### you can find the beta version on TAGS
 
-This project is a starting point for a Flutter application.
 
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
-
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+![welcome](https://github.com/amrs12145/meal_monkey/blob/master/screenShots/welcome.jpeg)
+![login](https://github.com/amrs12145/meal_monkey/blob/master/screenShots/login.jpeg)
+![signUp](https://github.com/amrs12145/meal_monkey/blob/master/screenShots/signUp.jpeg)
