@@ -16,6 +16,7 @@ dependencies:
 
   flutter_svg: ^0.22.0
   font_awesome_flutter: ^9.1.0
+  pin_code_fields: ^7.3.0
 
 
 

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import '../widgets.dart';
+import 'routes.dart';
 
 
 class SplashScreen extends StatelessWidget {
@@ -48,7 +49,7 @@ class SplashScreen extends StatelessWidget {
               width: size.width*.85,
               child: KButton(
                 child: Text('Login'),
-                onPressed:() => Navigator.pushNamed(context, 'login screen')
+                onPressed:() => Navigator.pushNamed(context, Routes.loginScreen)
               ),
             ),
 
@@ -58,7 +59,7 @@ class SplashScreen extends StatelessWidget {
               width: size.width*.85,
               child: KButton(
                 child: Text('Create an Account'),
-                onPressed:() => Navigator.pushNamed(context, 'sign_up screen'),
+                onPressed:() => Navigator.pushNamed(context, Routes.signUpScreen),
                 primary: Theme.of(context).accentColor,
                 onPrimary: Theme.of(context).primaryColor,
                 border: RoundedRectangleBorder(

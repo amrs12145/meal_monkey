@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../widgets.dart';
+import 'routes.dart';
 
 class SignUpScreen extends StatelessWidget {
 
@@ -26,12 +27,12 @@ class SignUpScreen extends StatelessWidget {
 
             KButton(
               child: Text('Sign Up'),
-              onPressed:() => Navigator.pushNamed(context, '')
+              onPressed:() => Navigator.pushNamed(context, Routes.signUpScreen)
             ),
 
             const SizedBox(height:15),
             InkWell(
-              onTap:() => Navigator.pushNamed(context, 'login screen'),
+              onTap:() => Navigator.pushNamed(context, Routes.loginScreen),
               child: Row(mainAxisAlignment:MainAxisAlignment.center,children: [Text('Already have an Account?'),Text('Sign In')])
             )
 

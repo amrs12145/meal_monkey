@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 import '../widgets.dart';
+import 'routes.dart';
 
 class LoginScreen extends StatelessWidget {
 
@@ -26,7 +27,10 @@ class LoginScreen extends StatelessWidget {
         ),
 
         const SizedBox(height:25.0),
-        Text('Forgot your password?',style: Theme.of(context).textTheme.bodyText2?.copyWith(color:Color(0xff919293)),textAlign:TextAlign.center,),
+        InkWell(
+          child: Text('Forgot your password?',style: Theme.of(context).textTheme.bodyText2?.copyWith(color:Color(0xff919293)),textAlign:TextAlign.center),
+          onTap: () => Navigator.pushNamed(context, Routes.resetPasswordScreen),
+        ),
         const SizedBox(height:60.0),
         Text('or Login With',style: Theme.of(context).textTheme.bodyText2?.copyWith(color:Color(0xff919293)),textAlign:TextAlign.center,),
         const SizedBox(height:30.0),
@@ -40,21 +44,30 @@ class LoginScreen extends StatelessWidget {
           primary: Color(0xff347ec0),
           onPrimary: Theme.of(context).accentColor,
         ),
+
         const SizedBox(height:25.0),
+
         KButton(
           child: Row(mainAxisAlignment:MainAxisAlignment.center,children: [
+
             FaIcon(FontAwesomeIcons.google),
             const SizedBox(width:15.0),
             Text('Login with Google')
+
           ],),
-          primary: Color(0xffdd4938),
-          onPrimary: Theme.of(context).accentColor,
+          primary:Colors.white,
+          onPrimary: Color(0xff838383),
+          border: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(26),
+            side: BorderSide(color:Colors.grey,width:1)
+          ),
         ),
 
 
         const SizedBox(height:40),
+
         InkWell(
-          onTap:() => Navigator.pushNamed(context, 'sign_up screen'),
+          onTap:() => Navigator.pushNamed(context, Routes.signUpScreen),
           child: Row(mainAxisAlignment:MainAxisAlignment.center,children: [Text('Don\'t have an Account?'),Text('Sign Up')])
         )
 
