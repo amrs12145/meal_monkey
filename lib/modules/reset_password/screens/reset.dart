@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:meal_monkey/widgets.dart';
 
-import '../routes.dart';
+import 'package:meal_monkey/shared/widgets.dart';
+import 'package:meal_monkey/shared/routes.dart';
 
 
 class ResetScreen extends StatelessWidget {

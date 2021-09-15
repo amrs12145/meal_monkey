@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:meal_monkey/widgets.dart';
+
+import 'package:meal_monkey/shared/widgets.dart';
 
 
 class NewPasswordScreen extends StatelessWidget {

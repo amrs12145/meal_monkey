@@ -1,14 +1,29 @@
 import 'package:flutter/material.dart';
-import 'package:meal_monkey/screens/login.dart';
-import 'package:meal_monkey/screens/sign_up.dart';
-import './constants.dart';
-import 'screens/reset_password/new_password.dart';
-import 'screens/reset_password/otp.dart';
-import 'screens/reset_password/reset.dart';
-import 'screens/routes.dart';
-import 'screens/splash.dart';
 
-void main() {
+import 'package:firebase_core/firebase_core.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:meal_monkey/modules/home/screens/home.dart';
+
+import 'modules/home/bloc/cubit.dart';
+import 'modules/login/bloc/cubit.dart';
+import 'modules/sign_up/bloc/cubit.dart';
+
+import 'modules/login/screens/login.dart';
+import 'modules/sign_up/screens/sign_up.dart';
+import 'modules/reset_password/screens/new_password.dart';
+import 'modules/reset_password/screens/otp.dart';
+import 'modules/reset_password/screens/reset.dart';
+import 'shared/routes.dart';
+import 'modules/splash/screens/splash.dart';
+
+import 'shared/constants.dart';
+
+
+
+
+void main() async{
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
   runApp(MyApp());
 }
 
@@ -17,22 +32,36 @@ void main() {
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Meal Monkey',
-      debugShowCheckedModeBanner: false,
-      theme: kThemeData(context),
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider<SignInCubit>(
+          create: (_) => SignInCubit(),
+        ),
+        BlocProvider<SignUpCubit>(
+          create: (_) => SignUpCubit(),
+        ),
+        BlocProvider<RecordingCubit>(
+          create: (_) => RecordingCubit(),
+        ),
+      ],
+      child: MaterialApp(
+        title: 'Meal Monkey',
+        debugShowCheckedModeBanner: false,
+        theme: kThemeData(context),
 
-      initialRoute: 'splash screen',
+        initialRoute: 'splash screen',
 
-      routes: {
-        Routes.splashScreen         : (_) =>  SplashScreen(),
-        Routes.loginScreen          : (_) =>  LoginScreen(),
-        Routes.signUpScreen         : (_) =>  SignUpScreen(),
-        Routes.resetPasswordScreen  : (_) =>  ResetScreen(),
-        Routes.otpScreen            : (_) =>  OTPScreen(),
-        Routes.newPasswordScreen    : (_) =>  NewPasswordScreen(),
-      },
+        routes: {
+          Routes.splashScreen         : (_) =>  SplashScreen(),
+          Routes.loginScreen          : (_) =>  LoginScreen(),
+          Routes.signUpScreen         : (_) =>  SignUpScreen(),
+          Routes.resetPasswordScreen  : (_) =>  ResetScreen(),
+          Routes.otpScreen            : (_) =>  OTPScreen(),
+          Routes.newPasswordScreen    : (_) =>  NewPasswordScreen(),
+          Routes.homeScreen           : (_) =>  HomeScreen(),
+        },
 
+      ),
     );
   }
 }

@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:meal_monkey/widgets.dart';
 import 'package:pin_code_fields/pin_code_fields.dart';
 
-import '../routes.dart';
+import 'package:meal_monkey/shared/widgets.dart';
+import 'package:meal_monkey/shared/routes.dart';
 
 
 class OTPScreen extends StatelessWidget {

@@ -28,12 +28,14 @@ class KButton extends StatelessWidget {
 class KTextFormField extends StatelessWidget {
 
   final String? hint;
-  const KTextFormField({this.hint});
+  final TextEditingController? controller;
+  const KTextFormField({this.hint,this.controller});
   
   @override
   Widget build(BuildContext context) {
     return Container(
       child: TextFormField(
+        controller: controller,
         decoration: InputDecoration(
           hintText: hint,
           hintStyle: Theme.of(context).textTheme.bodyText2,

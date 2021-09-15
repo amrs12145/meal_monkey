@@ -8,5 +8,5 @@ class Routes
   static const resetPasswordScreen  = 'reset_password screen';
   static const otpScreen            = 'otp screen';
   static const newPasswordScreen    = 'new_password screen';
-
+  static const homeScreen           = 'home screen';
 }

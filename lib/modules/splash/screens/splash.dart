@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import '../widgets.dart';
-import 'routes.dart';
+
+import 'package:meal_monkey/shared/widgets.dart';
+import 'package:meal_monkey/shared/routes.dart';
 
 
 class SplashScreen extends StatelessWidget {

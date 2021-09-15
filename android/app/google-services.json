@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "568854998409",
+    "project_id": "meal-monkey-55655",
+    "storage_bucket": "meal-monkey-55655.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:568854998409:android:46b929fd0c6c02d4214558",
+        "android_client_info": {
+          "package_name": "com.example.meal_monkey"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "568854998409-v4lhva79psvsln6okirnd77imgf8ck77.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.meal_monkey",
+            "certificate_hash": "ba0450f9e4526b927b087e4c53f300909c64757b"
+          }
+        },
+        {
+          "client_id": "568854998409-kc3rt9rn99k627qq043mcoe345f54t4f.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC8XIxtsD7FkY9vLBXjrTZOK449OK_xovY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "568854998409-kc3rt9rn99k627qq043mcoe345f54t4f.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
