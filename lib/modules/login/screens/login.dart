@@ -6,8 +6,7 @@ import '../bloc/cubit.dart';
 import '../bloc/states.dart';
 
 import 'package:meal_monkey/shared/widgets.dart';
-import 'package:meal_monkey/modules/splash/screens/splash.dart';
-import 'package:meal_monkey/modules/home/screens/home.dart';
+import 'package:meal_monkey/modules/welcomeSelector/screens/welcome_selector.dart';
 import 'package:meal_monkey/shared/routes.dart';
 
 class LoginScreen extends StatelessWidget {
@@ -21,7 +20,7 @@ class LoginScreen extends StatelessWidget {
         {
 
           if ( state is SignedInSuccessfully )
-            return HomeScreen();
+            return WelcomeSelectorScreen();
           else if ( state is Error )
             return InkWell(onTap:()=>context.read<SignInCubit>().emit(Intial()),child: Center(child:Text('${state.exception.code}///${state.exception.message}')));
           

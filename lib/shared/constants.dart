@@ -33,6 +33,28 @@ ThemeData? kThemeData(BuildContext context)
         fontWeight: FontWeight.w900,
         fontSize: 30
       ),
+    ),
+
+    bottomNavigationBarTheme: BottomNavigationBarThemeData(
+      elevation: 20.0,
+      type: BottomNavigationBarType.fixed,
+      //fixedColor: Colors.blue,
+      backgroundColor: Colors.white,
+      selectedItemColor: Color(0xfffc6111),
+      unselectedItemColor: Colors.grey,
+      selectedIconTheme: IconThemeData(
+        size: 28,
+        opacity: 1.0,
+      ),
+      unselectedIconTheme: IconThemeData(
+        size: 25,
+        opacity: 0.8,
+      ),
+      showUnselectedLabels: true,
+    ),
+
+    floatingActionButtonTheme: FloatingActionButtonThemeData(
+
     )
   );
 }

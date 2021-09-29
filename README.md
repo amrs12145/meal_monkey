@@ -16,6 +16,6 @@
 ![newPassword](https://github.com/amrs12145/meal_monkey/blob/master/screenShots/newPassword.jpeg)
 
             # TabView Slider
-![welcomeSelector1](https://github.com/amrs12145/meal_monkey/blob/master/screenShots/welcomeSelector1.jpeg)
+![welcomeSelector1](https://github.com/amrs12145/meal_monkey/blob/master/screenShots/welcomeSelector1.jpg)
 ![welcomeSelector2](https://github.com/amrs12145/meal_monkey/blob/master/screenShots/welcomeSelector2.jpg)
-![welcomeSelector3](https://github.com/amrs12145/meal_monkey/blob/master/screenShots/welcomeSelector3.jpeg)
+![welcomeSelector3](https://github.com/amrs12145/meal_monkey/blob/master/screenShots/welcomeSelector3.jpg)

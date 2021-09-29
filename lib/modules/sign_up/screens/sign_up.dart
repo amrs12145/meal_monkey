@@ -1,14 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:meal_monkey/modules/login/bloc/cubit.dart';
+import 'package:meal_monkey/modules/welcomeSelector/screens/welcome_selector.dart';
 
 import '../bloc/cubit.dart';
 import '../bloc/states.dart';
 
 
 import 'package:meal_monkey/shared/widgets.dart';
-import 'package:meal_monkey/modules/home/screens/home.dart';
 import 'package:meal_monkey/shared/routes.dart';
 
 
@@ -24,7 +23,7 @@ class SignUpScreen extends StatelessWidget {
         builder: (context,state){
 
           if ( state is SignedUpSuccessfully )
-            return HomeScreen();
+            return WelcomeSelectorScreen();
 
           else if ( state is Error )
             return InkWell(onTap:()=>context.read<SignUpCubit>().emit(Intial()),child: Center(child:Text('${state.exception.code}///${state.exception.message}')));

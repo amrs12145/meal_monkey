@@ -1,5 +1,8 @@
 
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:meal_monkey/modules/main_application/cubit.dart';
+import 'package:meal_monkey/shared/routes.dart';
 
 
 class KButton extends StatelessWidget {
@@ -49,6 +52,54 @@ class KTextFormField extends StatelessWidget {
         ),
       ),
       margin:const EdgeInsets.only(bottom: 20.0),
+    );
+  }
+}
+
+
+
+
+class KBottomNavigationBar extends StatelessWidget {
+
+
+  @override
+  Widget build(BuildContext context) {
+    return BlocBuilder<BottomNavCubit,int>(
+      builder: (context,index){
+        
+        return Container(
+        height: 90,
+          child: BottomNavigationBar(
+
+            currentIndex: index,
+            onTap: (i) {
+              BlocProvider.of<BottomNavCubit>(context).move(i);
+            },
+            
+
+            items: [
+              BottomNavigationBarItem(
+                icon: Icon(Icons.add),
+                label: 'Menu',
+              ),
+              BottomNavigationBarItem(
+                icon: Icon(Icons.shopping_bag),
+                label: 'Offers',
+              ),
+              BottomNavigationBarItem(
+                icon: Icon(Icons.manage_accounts),
+                label: 'Profile',
+              ),
+              BottomNavigationBarItem(
+                icon: Icon(Icons.more),
+                label: 'More',
+              ),
+            ],
+
+          ),
+        );
+      
+      },
     );
   }
 }
