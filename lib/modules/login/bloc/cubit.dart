@@ -1,187 +1,156 @@
 import 'package:flutter/material.dart';
 
 import 'package:google_sign_in/google_sign_in.dart';
-//import 'package:flutter_facebook_auth/flutter_facebook_auth.dart';
+import 'package:flutter_facebook_auth/flutter_facebook_auth.dart';
 //import 'package:flutter_login_facebook/flutter_login_facebook.dart';
-// ignore: import_of_legacy_library_into_null_safe
-import 'package:flutter_twitter_login/flutter_twitter_login.dart';
-// ignore: import_of_legacy_library_into_null_safe
-import 'package:flutter_facebook_login/flutter_facebook_login.dart';
+//import 'package:flutter_twitter_login/flutter_twitter_login.dart';
+//import 'package:flutter_facebook_login/flutter_facebook_login.dart';
+// import 'package:twitter_login/twitter_login.dart';
 
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'states.dart';
 
-
-
-class SignInCubit extends Cubit<SignInStates>
-{
+class SignInCubit extends Cubit<SignInStates> {
   //AuthenticationCubit(AuthenticationState initialState) : super(initialState);
   SignInCubit() : super(Intial());
 
+  final TextEditingController emailController = TextEditingController();
+  final TextEditingController passwordController = TextEditingController();
 
-  final TextEditingController emailController     = TextEditingController();
-  final TextEditingController passwordController  = TextEditingController();
-
-
-
-  Future<void> signInWithEmailAndPassword() async{
-
+  Future<void> signInWithEmailAndPassword() async {
     emit(Loading());
 
-    try
-    {
-      await FirebaseAuth.instance.signInWithEmailAndPassword(email: emailController.text, password: passwordController.text);
+    try {
+      await FirebaseAuth.instance.signInWithEmailAndPassword( email: emailController.text, password: passwordController.text);
       emit(SignedInSuccessfully());
-
-    }
-    on FirebaseException catch (e)
-    {
+    } on FirebaseException catch (e) {
       checkErrorCode(e);
       emit(Error(e));
     }
-
   }
 
-  Future<void> signInWithGoogle() async{
-
+  Future<void> signInWithGoogle() async {
     emit(Loading());
 
-    try
-    {
-
+    try {
       final googleUser = await GoogleSignIn().signIn();
       final googleAuth = await googleUser?.authentication;
       final credential = GoogleAuthProvider.credential(
-        idToken: googleAuth?.idToken,
-        accessToken: googleAuth?.accessToken
-      );
+          idToken: googleAuth?.idToken, accessToken: googleAuth?.accessToken);
       await FirebaseAuth.instance.signInWithCredential(credential);
 
       emit(SignedInSuccessfully());
-
-    }
-    catch (e)
-    {
+    } catch (e) {
       print(e);
       //checkErrorCode(e);
       //emit(Error(e));
     }
-
   }
 
-
-  Future<void> signInWithFacebook() async{
+  Future<void> signInWithFacebook() async {
 
     emit(Loading());
 
-    try
-    {
-      /*
-      final user = await FacebookAuth.instance.login();
-      final credential = FacebookAuthProvider.credential(user.accessToken!.token);
-      await FirebaseAuth.instance.signInWithCredential(credential);
-      */
-
-      final facebookLogin = FacebookLogin();
+    try {
+      //final facebookLogin = FacebookLogin();
       //facebookLogin.loginBehavior = FacebookLoginBehavior.webViewOnly;
+      // final result = await facebookLogin.logIn(['email']);
+      // final credential = FacebookAuthProvider.credential(result.accessToken.token);
+      // await FirebaseAuth.instance.signInWithCredential(credential);
 
-      final result = await facebookLogin.logIn(['email']);
-
-      final credential = FacebookAuthProvider.credential(result.accessToken.token);
-      
+      final user = await FacebookAuth.instance.login();
+      print('user.accessToken!.token');
+      final credential = FacebookAuthProvider.credential(user.accessToken!.token);
       await FirebaseAuth.instance.signInWithCredential(credential);
 
       emit(SignedInSuccessfully());
 
-    }
-    catch (e)
-    {
+    } catch (e) {
       print('\n\n\n\nEEErroor\n$e\n\n\n\n');
       emit(Intial());
       //checkErrorCode(e);
       //emit(Error(e));
     }
-
   }
 
-  Future<void> signInWithTwitter() async {
 
+  Future<void> signInWithTwitter() async {/*
     emit(Loading());
 
-    try
-    {
-      final login = TwitterLogin(
-        consumerKey: 'd0pP1WhRWG8r69DeBBTm23E6v',
-        consumerSecret:' ZKT9gI5MDtB9zvkPBxGI4iSoFYxK3XjvY6vSaK9TOY4GNb8XQX',
+print(Uri.parse('https://meal-monkey-55655.firebaseapp.com/__/auth/handler').scheme);
+    try {
+      final twitterLogin = TwitterLogin(
+        apiKey: 'ZGYH2WCt2wXwJ1phn2B0nnU9G',
+        apiSecretKey: ' ZKT9gI5MDtB9zvkPBxGI4iSoFYxK3XjvY6vSaK9TOY4GNb8XQX',
+        redirectURI: 'https://meal-monkey-55655.firebaseapp.com/__/auth/handler'
+        // redirectURI: 'meal-monkey://'
       );
 
+      final authResult = await twitterLogin.login();
 
-      final result = await login.authorize();
+      switch (authResult.status) {
+        case TwitterLoginStatus.loggedIn:
+          // success
+          break;
+        case TwitterLoginStatus.cancelledByUser:
+          print('Canceelllled');
+          break;
+        case TwitterLoginStatus.error:
+          print('Errrror by twitter');
+          break;
+        default:
+          print('Errrror line 103-LoginCubit');
+          break;
+      }
 
-      final session = result.session;
+      if ( authResult.status == TwitterLoginStatus.loggedIn )
+      {
+        final credential = TwitterAuthProvider.credential(
+          accessToken: twitterLogin.apiKey,
+          secret: twitterLogin.apiSecretKey,
+        );
 
-      final credential = TwitterAuthProvider.credential(
-        accessToken: session.token,
-        secret: session.secret,
-      );
+        await FirebaseAuth.instance.signInWithCredential(credential);
+        emit(SignedInSuccessfully());
+      }
 
-      await FirebaseAuth.instance.signInWithCredential(credential);
-      
-      emit(SignedInSuccessfully());
-    }
-    catch (e)
-    {
+    } catch (e) {
       print('\n\n\n\nEEErroor\n$e\n\n\n\n');
       emit(Intial());
     }
-
+    */
   }
 
-
-  Future<void> signOut() async{
-
+  Future<void> signOut() async {
     emit(Loading());
 
-    try
-    {
-
+    try {
       emailController.clear();
       passwordController.clear();
 
-
-      if( await GoogleSignIn().isSignedIn() )
+      if (await GoogleSignIn().isSignedIn())
       {
         await GoogleSignIn().signOut();
       }
-      else if ( await FacebookLogin().isLoggedIn )
-      {
-        await FacebookLogin().logOut();
-      }
-      else if ( await TwitterLogin( consumerKey: 'd0pP1WhRWG8r69DeBBTm23E6v',consumerSecret:' ZKT9gI5MDtB9zvkPBxGI4iSoFYxK3XjvY6vSaK9TOY4GNb8XQX').isSessionActive )
-      {
-        await TwitterLogin( consumerKey: 'd0pP1WhRWG8r69DeBBTm23E6v',consumerSecret:' ZKT9gI5MDtB9zvkPBxGI4iSoFYxK3XjvY6vSaK9TOY4GNb8XQX').logOut();
-      }
+      // else if (await FacebookAuth.instance. )
+      // {
+      //   await FacebookLogin().logOut();
+      // }
+      // else if (await TwitterLogin( consumerKey: 'd0pP1WhRWG8r69DeBBTm23E6v', consumerSecret:' ZKT9gI5MDtB9zvkPBxGI4iSoFYxK3XjvY6vSaK9TOY4GNb8XQX').isSessionActive)
+      // {
+      //  await TwitterLogin( consumerKey: 'd0pP1WhRWG8r69DeBBTm23E6v', consumerSecret:' ZKT9gI5MDtB9zvkPBxGI4iSoFYxK3XjvY6vSaK9TOY4GNb8XQX').logOut();
+      // }
       await FirebaseAuth.instance.signOut();
       emit(Intial());
-      
-     
-    }
-    catch (e)
-    {
+    } catch (e) {
       print('Eception : Can\'t Sign-Out \n$e ');
       emit(Intial());
     }
-
   }
 
-
-
-
-  void checkErrorCode(FirebaseException e)
-  {
-    switch(e.code)
-    {
+  void checkErrorCode(FirebaseException e) {
+    switch (e.code) {
       case 'email-already-in-use':
         print('email-already-in-use');
         break;
@@ -197,7 +166,6 @@ class SignInCubit extends Cubit<SignInStates>
       case 'weak-password':
         print('weak-password');
         break;
-
 
       case 'user-disabled':
         print('user-disabled');
@@ -216,5 +184,4 @@ class SignInCubit extends Cubit<SignInStates>
         break;
     }
   }
-
 }

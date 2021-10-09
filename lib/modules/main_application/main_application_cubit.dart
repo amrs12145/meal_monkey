@@ -23,6 +23,14 @@ class BottomNavCubit extends Cubit<int>
     MoreScreen(),
     //HomeScreen(),
   ];
+
+  List<String> _pagesNames = [
+    'Menu',
+    'Offers',
+    'Profile',
+    'More',
+    //HomeScreen(),
+  ];
   
 
   void move(int index)
@@ -36,5 +44,9 @@ class BottomNavCubit extends Cubit<int>
     return _pages[state];
   }
 
+  String getPageName()
+  {
+    return _pagesNames[state];
+  }
 
 }

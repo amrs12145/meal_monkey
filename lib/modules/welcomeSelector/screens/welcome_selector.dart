@@ -10,9 +10,9 @@ import '../model/welcomeSelector.dart';
 class WelcomeSelectorScreen extends StatelessWidget {
 
   final List<WelcomeSelectorModel> _list = [
-    WelcomeSelectorModel(image: 'assets/images/welcome_selector1.jpg',title: 'Find Food You love' ,description: 'Discover the best foods from 1,00 restaurants and fast delivery to your doorstep'),
-    WelcomeSelectorModel(image: 'assets/images/welcome_selector2.jpg',title: 'Fast Delivery' ,description: 'Fast food delivery to your home,office,whenever you are'),
-    WelcomeSelectorModel(image: 'assets/images/welcome_selector3.jpg',title: 'Live Tracking' ,description: 'Fast food delivery to your home,office,whenever you are'),
+    WelcomeSelectorModel(image: 'assets/images/welcome_selector1.png',title: 'Find Food You love' ,description: 'Discover the best foods from 1,00 restaurants and fast delivery to your doorstep'),
+    WelcomeSelectorModel(image: 'assets/images/welcome_selector2.png',title: 'Fast Delivery' ,description: 'Fast food delivery to your home,office,whenever you are'),
+    WelcomeSelectorModel(image: 'assets/images/welcome_selector3.png',title: 'Live Tracking' ,description: 'Fast food delivery to your home,office,whenever you are'),
   ];
 
   @override

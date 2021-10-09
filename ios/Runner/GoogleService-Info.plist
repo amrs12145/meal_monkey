@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>568854998409-g292l4qgtv2bsa9scc6qejmv9i9sc11g.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.568854998409-g292l4qgtv2bsa9scc6qejmv9i9sc11g</string>
+	<key>ANDROID_CLIENT_ID</key>
+	<string>568854998409-v4lhva79psvsln6okirnd77imgf8ck77.apps.googleusercontent.com</string>
+	<key>API_KEY</key>
+	<string>AIzaSyChnAEh1veyhwLsKXrOeUzIlMuFe93T2Wk</string>
+	<key>GCM_SENDER_ID</key>
+	<string>568854998409</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.example.mealMonkey</string>
+	<key>PROJECT_ID</key>
+	<string>meal-monkey-55655</string>
+	<key>STORAGE_BUCKET</key>
+	<string>meal-monkey-55655.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:568854998409:ios:1c5ba5fde1acc5a0214558</string>
+</dict>
+</plist>

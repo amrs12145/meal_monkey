@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+
 import 'package:meal_monkey/modules/main_application/home/screens/home.dart';
 import 'package:meal_monkey/modules/main_application/main_application.dart';
 import 'package:meal_monkey/modules/main_application/menu/screens/menu.dart';

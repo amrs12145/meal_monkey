@@ -11,16 +11,55 @@ class MoreScreen extends StatelessWidget {
   Widget build(BuildContext context) {
 
     return Scaffold(
-      body: Center(child:Text('More')),
-/*      bottomNavigationBar: KBottomNavigationBar(),
-      floatingActionButton: FloatingActionButton(
-        child: Icon(Icons.home),
-        onPressed: () {
+      body: SingleChildScrollView(
+        padding: const EdgeInsets.all(10.0),
+        child: Column(children: [
 
-        },
-      ),
-      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
-*/    );
+          KListTile(
+            onTap: () {
+              
+            },
+            leading: Icon(Icons.payments,color: Colors.black,),
+            title: Text('Payment Details'),
+          ),
+
+          KListTile(
+            onTap: () {
+              
+            },
+            leading: Icon(Icons.shopping_bag,color: Colors.black,),
+            title: Text('My Orders'),
+          ),
+          
+          KListTile(
+            onTap: () {
+              
+            },
+            leading: Icon(Icons.notifications_active,color: Colors.black,),
+            title: Text('Notifications'),
+          ),
+
+          KListTile(
+            onTap: () {
+              
+            },
+            leading: Icon(Icons.mail,color: Colors.black,),
+            title: Text('Inbox'),
+          ),
+          
+          KListTile(
+            onTap: () {
+              
+            },
+            leading: Icon(Icons.info,color: Colors.black,),
+            title: Text('About Us'),
+          ),
+
+          
+
+        ]),
+      )
+   );
     
   }
 }

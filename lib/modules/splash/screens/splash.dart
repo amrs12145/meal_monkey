@@ -17,34 +17,30 @@ class SplashScreen extends StatelessWidget {
         child: Column(
           children: [
 
-            Card(
-              child: Stack(children: [
+            Stack(clipBehavior: Clip.none,children: [
 
-                //SvgPicture.asset('assets/svg/orange_background.svg',width:300,height:300,),
-                Image.asset('assets/images/orange_background.png',width: double.infinity,fit: BoxFit.cover,), 
+              //SvgPicture.asset('assets/svg/orange_background.svg',width:300,height:300,),
+              Image.asset('assets/images/orange_background.png',width: double.infinity,fit: BoxFit.fitWidth,), 
 
-                Positioned(
-                  bottom: 0,
-                  left:145,
-                  child: Image.asset('assets/images/monkey_face.png')
-                ),
-              ]),
-              elevation: 20,
-              margin:EdgeInsets.zero,
-            ),
+              Positioned(
+                bottom: -30,
+                left:145,
+                child: Image.asset('assets/images/monkey_face.png')
+              ),
+            ]),
 
-            SizedBox(height:30),
+            const SizedBox(height:60),
             Image.asset('assets/images/meal_monkey.png',),
-            SizedBox(height:10),
+            const SizedBox(height:10),
             Text('FOOD DELIVERY',style:Theme.of(context).textTheme.bodyText2?.copyWith(fontSize:20)),
-            SizedBox(height:30),
+            const SizedBox(height:30),
 
             Text('Discover the best foods from over 1,000\nrestaurants and fast delivery to your doorstep',
               style: Theme.of(context).textTheme.bodyText2,
               textAlign: TextAlign.center,
             ),
 
-            SizedBox(height:50),
+            const SizedBox(height:50),
 
             SizedBox(
               width: size.width*.85,

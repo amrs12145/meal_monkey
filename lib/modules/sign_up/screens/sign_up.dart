@@ -33,18 +33,18 @@ class SignUpScreen extends StatelessWidget {
 
           else if ( state is Intial )
             return Form(
-              child: ListView(padding:EdgeInsets.all(20.0),children: [
+              child: ListView(padding:const EdgeInsets.all(20.0),children: [
                   const SizedBox(height:40),
                   Text('Sign Up',style:Theme.of(context).textTheme.bodyText1,textAlign:TextAlign.center,),
                   const SizedBox(height:15),
                   Text('Add your details to sign up',style:Theme.of(context).textTheme.bodyText2,textAlign:TextAlign.center,),
                   SizedBox(height:30),
 
-                  KTextFormField(hint: 'Name',),
-                  KTextFormField(hint: 'Email',controller: BlocProvider.of<SignUpCubit>(context).emailController ),
-                  KTextFormField(hint: 'Mobile No',),
-                  KTextFormField(hint: 'Address',),
-                  KTextFormField(hint: 'Password',controller: BlocProvider.of<SignUpCubit>(context).passwordController ),
+                  KTextFormField(hint: 'Name',      controller: BlocProvider.of<SignUpCubit>(context).nameController ),
+                  KTextFormField(hint: 'Email',     controller: BlocProvider.of<SignUpCubit>(context).emailController ),
+                  KTextFormField(hint: 'Mobile No', controller: BlocProvider.of<SignUpCubit>(context).mobileController ),
+                  KTextFormField(hint: 'Address',   controller: BlocProvider.of<SignUpCubit>(context).addressController ),
+                  KTextFormField(hint: 'Password',  controller: BlocProvider.of<SignUpCubit>(context).passwordController ),
                   KTextFormField(hint: 'Confirm Password',),
 
                   KButton(
